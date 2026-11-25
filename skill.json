@@ -1,0 +1,33 @@
+{
+  "$schema_version": 1,
+  "name": "srs-ag03-gap-analysis",
+  "version": "2.2.1",
+  "node_id": "AG-03",
+  "kind": "agent",
+  "summary": "Agent Node AG-03 (Bước B6 SOP viết SRS): phân tích khoảng trống trên REQ đã gán ID, sinh câu hỏi làm rõ có ưu tiên, phương án mặc định và cách kiểm chứng ASK (hỏi trực tiếp) hay DEMO (qua prototype). Chấm điểm nguyên 0..3. Mỗi khoảng trống gắn công việc JTBD (JOB) của khách; dự án đã có phần mềm th…",
+  "repository": "https://github.com/HaNguyen1409/srs-ag03-gap-analysis",
+  "license": "MIT",
+  "interface": {
+    "contract": "SKILL.md — đầu vào/đầu ra là tài liệu Markdown/JSON mô tả trong skill; không gọi trực tiếp skill khác",
+    "output_artifact": "Phiếu câu hỏi làm rõ (XLSX theo mẫu Q&A của khách) + gaps[]",
+    "sop_steps": [
+      {
+        "step": "6",
+        "title": "Phân tích khoảng trống + phiếu câu hỏi làm rõ (XLSX theo mẫu Q&A của khách)",
+        "type": "Agent",
+        "receives_from": "B5, (B5a)",
+        "sends_to": "Khách (phiếu câu hỏi), (B8), B8a, B11, B14, B16"
+      }
+    ]
+  },
+  "upstream": {
+    "srs-agmt-functional-matrix": "^1.1.0"
+  },
+  "downstream": [
+    "srs-ag05-feature-matrix",
+    "srs-agtq-project-overview",
+    "srs-ag14-data-design"
+  ],
+  "orchestrates": {},
+  "runtime": null
+}
